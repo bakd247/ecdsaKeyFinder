@@ -1,6 +1,6 @@
+print("Creating Benchmark Collision List...Please Wait...")
 from tinyec.ec import SubGroup, Curve
 import time
-print("Creating Benchmark Collision List...Please Wait...")
 t = time.process_time()
 name = 'secp256k1'
 p = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
@@ -21,4 +21,6 @@ while iteration < (2**16):
 elapsed_time = time.process_time() - t
 print("Benchmark Collision List of key size", iteration)
 print("Created in...")
-print(elapsed_time,"seconds")
+print(elapsed_time,"seconds at")
+C = iteration//elapsed_time
+print(C," keys per second")
