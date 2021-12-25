@@ -35,7 +35,7 @@ while iterations != (n):
 	B = pubKey*privKey
 	if B.x in DAG:
 		print("privKey")
-		print(B.X)
+		print(B.x)
 		exit()
 	else:
 		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
