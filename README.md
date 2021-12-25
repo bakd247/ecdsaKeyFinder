@@ -13,6 +13,8 @@ DO NOT GIVE OUT YOUR KEYS TO ANYONE!!!
 
 If You do in fact find a matching key.  This key must be multiplied by the cooresponding power of two that it collides with (modulo "n") in order to end up back at the key being searched for.
 
+By Creating A List of Collisions and searching through this list there is a higher probability of finding a Matching Key.
+
 Please Be sure to install the tinyec and hashlib package in pytohn3 before running this benchmark with the folowing command.
 pip install tinyec
 pip install hashlib
