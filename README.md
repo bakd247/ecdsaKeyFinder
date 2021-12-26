@@ -18,7 +18,10 @@ Note that the larger the Size of the Collision List you Create...the longer each
 By Creating A List of Collisions and searching through this list there is a Much Higher Probability of Recovering a Private Key from a Known Public Key.
 
 Please Be sure to install the tinyec and hashlib package in pytohn3 before running this benchmark with the folowing command.
+
 pip install tinyec
+
+
 pip install hashlib
 
 
