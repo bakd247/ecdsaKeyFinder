@@ -23,16 +23,7 @@ while iteration < (AA):
 
 elapsed_time = time.process_time() - t
 print("Benchmark Collision List of key size", iteration)
-print("Created in...")
+print("Created and Sample Collision Key Located in...")
 print(elapsed_time,"seconds at")
 C = iteration//elapsed_time
 print(C," keys per second")
-
-print("List Search Benchmark...Please Wait...")
-t1 = time.process_time()
-B = curve.g* iteration
-if B.x in CollisionList:
-	print("Test Key Found!")
-elapsed_time1 = time.process_time() - t1
-print(elapsed_time1)
-print("Comparisions per second")
