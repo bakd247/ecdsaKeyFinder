@@ -15,12 +15,12 @@ h = 1
 
 curve1 = Curve(a, b, SubGroup(p, g, n, h), name)
 pubKey1 = curve1.g*1
-
+AA = input("Please Enter the Size of the Collision List you would like to Create:")
 print("Creating CollisionList...Please Wait...")
 
 CollisionList = []
 iteration = 1
-while iteration < (256):
+while iteration < (AA):
 	A = pubKey1*2
 	CollisionList.append(A.x)
 	pubKey1 = A
