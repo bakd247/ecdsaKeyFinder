@@ -1,7 +1,6 @@
-print("Creating Benchmark Collision List...Please Wait...")
 from tinyec.ec import SubGroup, Curve
 import time
-t = time.process_time()
+
 name = 'secp256k1'
 p = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
 n = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
@@ -13,14 +12,28 @@ curve = Curve(a, b, SubGroup(p, g, n, h), name)
 pubKey = curve.g*1
 CollisionList = []
 iteration = 1
-while iteration < (2**16):
+AA = int(input("Please Enter the Size of the collision List You would Like To Create:"))
+print("Creating Benchmark Collision List...Please Wait...")
+t = time.process_time()
+while iteration < (AA):
 	A = pubKey*2
 	CollisionList.append(A.x)
 	pubKey = A
 	iteration = iteration + 1
+
 elapsed_time = time.process_time() - t
 print("Benchmark Collision List of key size", iteration)
 print("Created in...")
 print(elapsed_time,"seconds at")
 C = iteration//elapsed_time
 print(C," keys per second")
+
+print("List Search Benchmark...Please Wait...")
+t1 = time.process_time()
+for i, key in enumerate (CollisionList):
+	B = curve.g*(AA)
+	if B.x == key:
+		print("Test Key Found!")
+elapsed_time1 = time.process_time() - t1
+print(elapsed_time1)
+print("Comparisions per second")
