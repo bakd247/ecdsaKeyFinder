@@ -20,7 +20,7 @@ print("Creating DAG...Please Wait...")
 
 DAG = []
 iteration = 1
-while iteration < (2**16):
+while iteration < (256):
 	A = pubKey1*2
 	DAG.append(A.x)
 	pubKey1 = A
@@ -33,10 +33,21 @@ iterations = 1
 while iterations != (n):
 	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 	B = pubKey*privKey
-	if B.x in DAG:
-		print("privKey")
-		print(B.x)
-		exit()
+	for i, key in enumerate (DAG):
+		if key == B.x:
+			print(i, key)
+			print(privKey)
+			half = ((n+1)//2)
+			j = i+1
+			while j != 0:
+				D = (privKey*half)%n
+				privKey = D
+				j = j-1
+			E = n-D
+			print("This is One of the Private Keys you are Searching For:",D)
+			print("And This is The Other:", E)
+			print("Please only Use the one That Gives the correct Y Coordinate.")
+			exit()
 	else:
 		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 		iterations = iterations+1
