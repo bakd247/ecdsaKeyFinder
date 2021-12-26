@@ -3,8 +3,8 @@ from random import *
 import os
 import hashlib
 from ecdsaModule import pubKey
-X = int((input("Please Enter Your X Coordinate:")),16)
-Y = int((input("Please Enter Your Y Coordinate:")),16)
+X = int((input("Please Enter Your Public Key X Coordinate:")),16)
+Y = int((input("Please Enter Your Public Key Y Coordinate:")),16)
 name = 'secp256k1'
 p = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
 n = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
@@ -15,8 +15,8 @@ h = 1
 
 curve1 = Curve(a, b, SubGroup(p, g, n, h), name)
 pubKey1 = curve1.g*1
-AA = input("Please Enter the Size of the Collision List you would like to Create:")
-print("Creating CollisionList...Please Wait...")
+AA = int(input("Please Enter the Size of the Collision List you would like to Create:"))
+print("Creating Collision List...Please Wait...")
 
 CollisionList = []
 iteration = 1
@@ -26,7 +26,7 @@ while iteration < (AA):
 	pubKey1 = A
 	iteration = iteration + 1
 
-print("CollisionList Created...Searching For Key...")
+print("Collision List Created...Searching For Key...")
 
 
 iterations = 1
@@ -35,18 +35,21 @@ while iterations != (n):
 	B = pubKey*privKey
 	for i, key in enumerate (CollisionList):
 		if key == B.x:
-			print(i, key)
-			print(privKey)
+			print("Collision Key Found:")
+			print("Iteration Number:", i)
+			print("Collision PubKey:", key)
+			print("Collision PrivateKey:", privKey)
 			half = ((n+1)//2)
 			j = i+1
 			while j != 0:
 				D = (privKey*half)%n
 				privKey = D
 				j = j-1
-			E = n-D
-			print("This is One of the Private Keys you are Searching For:",D)
-			print("And This is The Other:", E)
-			print("Please only Use the one That Gives the correct Y Coordinate.")
+			print("Actual Private Key:",D)
+			print("Please Do Not Loose This Key...Thank You")
+			print("This Key Has Been Written To A File Called foundKeys.txt")
+			with open('foundKeys.txt', 'w') as e:
+					e.write(str(D))
 			exit()
 	else:
 		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
