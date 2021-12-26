@@ -15,16 +15,16 @@ The Vulnerability that this tool exploits makes public keys just as valuable as 
 
 By Creating A Very Large List of Collisions and searching through this list there is a Much Higher Probability of Recovering a Private Key from a Known Public Key.
 
-These Collisions are Created using Mulitples of a Piblic Key by 2 and then iterativley dividing the collision found by 2 until the key being searched for is found.
+These Collisions are Created using Mulitples of a Public Key by 2 and then iterativley dividing the collision found by 2 until the key being searched for is found.
 Please See Source code to Understand the inner Workings of this tool.
 
-Also see my Videos on the Math Behind ECDSA Here:
+More on the Math Behind ECDSA at my YouTube Channel Located Here:
 
 https://www.youtube.com/channel/UCzqL2c7hXqtypPM3irYz2-g
 
 Note:
 
-The larger the Size of the Collision List you create...the longer each try will take to search through the list. So there is a point around 1 billion or more collisions in the list where the keys per second starts to take a hit due to the search time of the large Collision List. It is recomended to keep your Collision List lower than 4 Billion Keys for the maximum "hash rate"/ "key creation per second rate".
+The larger the Size of the Collision List you create...the longer each try will take to search through the list. So there is a point around 1 billion or more collisions in the list where the keys per second starts to take a hit due to the search time of the large Collision List. It is recommended to keep your Collision List lower than 4 Billion Keys for the maximum "hash rate"/ "key creation per second rate".
 
 Please Be sure to install the tinyec and hashlib package in pytohn3 before running this benchmark with the folowing command.
 
