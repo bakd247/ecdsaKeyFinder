@@ -30,10 +30,9 @@ print(C," keys per second")
 
 print("List Search Benchmark...Please Wait...")
 t1 = time.process_time()
-for i, key in enumerate (CollisionList):
-	B = curve.g*(AA)
-	if B.x == key:
-		print("Test Key Found!")
+B = curve.g* iteration
+if B.x in CollisionList:
+	print("Test Key Found!")
 elapsed_time1 = time.process_time() - t1
 print(elapsed_time1)
 print("Comparisions per second")
