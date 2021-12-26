@@ -46,7 +46,10 @@ while iterations != (n):
 					D = (privKey*half)%n
 					privKey = D
 					j = j-1
+				E = n-D
 				print("Actual Private Key:",D)
+				print("Actual Inverse Private Key", E)
+				print("Please Be Sure to ONLY Use the key that Gives the Correct Y Coordinate.")
 				print("Please Do Not Loose This Key...Thank You")
 				print("This Key Has Been Written To A File Called foundKeys.txt")
 				with open('foundKeys.txt', 'w') as e:
