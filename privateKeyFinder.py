@@ -16,24 +16,24 @@ h = 1
 curve1 = Curve(a, b, SubGroup(p, g, n, h), name)
 pubKey1 = curve1.g*1
 
-print("Creating DAG...Please Wait...")
+print("Creating CollisionList...Please Wait...")
 
-DAG = []
+CollisionList = []
 iteration = 1
 while iteration < (256):
 	A = pubKey1*2
-	DAG.append(A.x)
+	CollisionList.append(A.x)
 	pubKey1 = A
 	iteration = iteration + 1
 
-print("DAG Created...Searching For Key...")
+print("CollisionList Created...Searching For Key...")
 
 
 iterations = 1
 while iterations != (n):
 	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 	B = pubKey*privKey
-	for i, key in enumerate (DAG):
+	for i, key in enumerate (CollisionList):
 		if key == B.x:
 			print(i, key)
 			print(privKey)
