@@ -26,6 +26,8 @@ Note:
 
 The larger the Size of the Collision List you create...the longer each try will take to search through the list. So there is a point around 1 billion or more collisions in the list where the keys per second starts to take a hit due to the search time of the large Collision List. It is recommended to keep your Collision List lower than 4 Billion Keys for the maximum "hash rate"/ "key creation per second rate".
 
+This tool works best with python3
+
 Please Be sure to install the tinyec and hashlib package in pytohn3 before running this benchmark with the folowing command.
 
 pip install tinyec
