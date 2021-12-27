@@ -15,6 +15,7 @@ h = 1
 
 curve1 = Curve(a, b, SubGroup(p, g, n, h), name)
 pubKey1 = curve1.g*1
+PublicKey = curve1.g*1
 AA = int(input("Please Enter the Size of the Collision List you would like to Create:"))
 print("Creating Collision List...Please Wait...")
 
@@ -33,7 +34,11 @@ iterations = 1
 while iterations != (n):
 	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 	B = pubKey*privKey
-	if B.x in CollisionList:
+	if B.x == PublicKey.x:
+		print("Found Private Key:", privKey)
+		print("Matching Public Key:", B.x)
+		exit()
+	elif B.x in CollisionList:
 		for i, key in enumerate (CollisionList):
 			if key == B.x:
 				print("Collision Key Found:")
@@ -46,12 +51,13 @@ while iterations != (n):
 					D = (privKey*half)%n
 					privKey = D
 					j = j-1
+				
 				print("Actual Private Key:",D)
 				print("Please Do Not Loose This Key...Thank You")
 				print("This Key Has Been Written To A File Called foundKeys.txt")
 				with open('foundKeys.txt', 'w') as e:
 						e.write(str(D))
 				exit()
-		else:
-			privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
-			iterations = iterations+1
+	else:
+		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
+		iterations = iterations+1
