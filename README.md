@@ -18,6 +18,8 @@ By Creating A Very Large List of Collisions and searching through this list ther
 These Collisions are Created using Mulitples of a Public Key by 2 and then iterativley dividing the collision found by 2 until the key being searched for is found.
 Please See Source code to Understand the inner Workings of this tool.
 
+Any Recovered Keys can be found in a file called 'foundKeys.txt'.
+
 More on the Math Behind ECDSA at my YouTube Channel Located Here:
 
 https://www.youtube.com/channel/UCzqL2c7hXqtypPM3irYz2-g
