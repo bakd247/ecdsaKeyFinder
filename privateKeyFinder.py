@@ -3,8 +3,8 @@ from random import *
 import os
 import hashlib
 from ecdsaModule import pubKey
-X = int((input("Please Enter Your Public Key X Coordinate in hex format:")),16)
-Y = int((input("Please Enter Your Public Key Y Coordinate in hex format:")),16)
+X = int((input("Please Enter Your Public Key X Coordinate:")),16)
+Y = int((input("Please Enter Your Public Key Y Coordinate:")),16)
 name = 'secp256k1'
 p = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
 n = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
@@ -16,7 +16,7 @@ h = 1
 curve1 = Curve(a, b, SubGroup(p, g, n, h), name)
 pubKey1 = curve1.g*1
 PublicKey = curve1.g*1
-AA = int(input("Please Enter the Size of the Collision List you would like to Create:"))
+AA = int(input("Please Enter the Size of the Collision List you would like to Create. A Size between 65000 and 4 billion is the recomended range:"))
 print("Creating Collision List...Please Wait...")
 
 CollisionList = []
