@@ -43,8 +43,8 @@ while iterations < (n):
 			if key == B.x:
 				print("Collision Key Found:")
 				print("Iteration Number:", i)
-				print("Collision PubKey:", key)
-				print("Collision PrivateKey:", privKey)
+				print("Collision Public Key:", key)
+				print("Collision Private Key:", privKey)
 				half = ((n+1)//2)
 				j = i+1
 				while j != 0:
