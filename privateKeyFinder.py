@@ -31,7 +31,7 @@ print("Collision List Created...Searching For Key...")
 
 
 iterations = 1
-while iterations != (n):
+while iterations < (n):
 	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 	B = pubKey*privKey
 	if B.x == PublicKey.x:
