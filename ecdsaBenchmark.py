@@ -1,5 +1,8 @@
 from tinyec.ec import SubGroup, Curve
 import time
+from random import *
+import os
+import hashlib
 
 name = 'secp256k1'
 p = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
@@ -12,11 +15,11 @@ curve = Curve(a, b, SubGroup(p, g, n, h), name)
 pubKey = curve.g*1
 CollisionList = []
 iteration = 1
-AA = int(input("Please Enter the Size of the collision List You would Like To Create:"))
+AA = 256
 print("Creating Benchmark Collision List...Please Wait...")
 t = time.process_time()
 while iteration < (AA):
-	A = pubKey*2
+	A = pubKey*(int((hashlib.sha256(os.urandom(16)).hexdigest()), 16))
 	CollisionList.append(A.x)
 	pubKey = A
 	iteration = iteration + 1
@@ -24,6 +27,7 @@ while iteration < (AA):
 elapsed_time = time.process_time() - t
 print("Benchmark Collision List of key size", iteration)
 print("Created and Sample Collision Key Located in...")
-print(elapsed_time,"seconds at")
+print(elapsed_time,"seconds")
+print("Your Device Creates 256 bit Public keys at a rate of:")
 C = iteration//elapsed_time
 print(C," keys per second")
