@@ -16,7 +16,7 @@ h = 1
 curve1 = Curve(a, b, SubGroup(p, g, n, h), name)
 pubKey1 = curve1.g*1
 PublicKey = curve1.g*1
-AA = int(input("Please Enter the Size of the Collision List you would like to Create. A Size between 65000 and 4 billion is the recomended range:"))
+AA = int(input("Please Enter the Size of the Collision List you would like to Create. A Size between 65,000 and 4 billion is the recomended range. Best Performance around 100,000:"))
 print("Creating Collision List...Please Wait...")
 
 CollisionList = []
