@@ -45,14 +45,33 @@ else:
 			print("Matching Public Key:", B.x)
 			exit()
 
-		if B.x == PublicKey.x:
+		elif B.x == PublicKey.x:
 			print("Found Private Key:", privKey)
 			print("Matching Public Key:", B.x)
 			exit()
 		
 		elif B.x in CollisionList:
 			for i, key in enumerate (CollisionList):
-				if key == B.x:
+				if B.y != PublicKey.y:
+					privKey = n - privKey
+					print("Collision Key Found:")
+					print("Iteration Number:", i)
+					print("Collision Public Key:", key)
+					print("Collision Private Key:", privKey)
+					half = ((n+1)//2)
+					j = i+1
+					while j != 0:
+						D = (privKey*half)%n
+						privKey = D
+						j = j-1
+				
+					print("Actual Private Key:",D)
+					print("Please Do Not Loose This Key...Thank You")
+					print("This Key Has Been Written To A File Called foundKeys.txt")
+					with open('foundKeys.txt', 'w') as e:
+							e.write(str(D))
+					exit()
+				elif key == B.x:
 					print("Collision Key Found:")
 					print("Iteration Number:", i)
 					print("Collision Public Key:", key)
