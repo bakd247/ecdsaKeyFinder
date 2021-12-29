@@ -37,7 +37,7 @@ else:
 
 	iterations = 1
 	while iterations < (n):
-		privKey = 17731131319379050749305277731488355714995459772017791451312285215376838872843  
+		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)  
 		B = pubKey*privKey
 		
 		if B.y == PublicKey.y:
