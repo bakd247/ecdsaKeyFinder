@@ -37,7 +37,7 @@ else:
 
 	iterations = 1
 	while iterations < (n):
-		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)  
+		privKey = 96167372826517772003102616924874179248677911977546683183271655183059990594886
 		B = pubKey*privKey
 		
 		if B.y == PublicKey.y:
@@ -53,7 +53,7 @@ else:
 			exit()
 
 		
-		if B.x in CollisionList:
+		elif B.x in CollisionList:
 			for i, key in enumerate (CollisionList):
 				if key == B.x:
 					print("Collision Key Found:")
