@@ -37,23 +37,25 @@ else:
 
 	iterations = 1
 	while iterations < (n):
-		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)  
+		privKey = 17731131319379050749305277731488355714995459772017791451312285215376838872843  
 		B = pubKey*privKey
-		if B.y != PublicKey.y:
-			privKey = n - privKey
+		
+		if B.y == PublicKey.y:
 			print("Found Private Key:", privKey)
 			print("Matching Public Key:", B.x)
 			exit()
 
 		elif B.x == PublicKey.x:
+			privKey = n - privKey
+			privKey = privKey
 			print("Found Private Key:", privKey)
 			print("Matching Public Key:", B.x)
 			exit()
+
 		
-		elif B.x in CollisionList:
+		if B.x in CollisionList:
 			for i, key in enumerate (CollisionList):
-				if B.y != PublicKey.y:
-					privKey = n - privKey
+				if key == B.x:
 					print("Collision Key Found:")
 					print("Iteration Number:", i)
 					print("Collision Public Key:", key)
@@ -64,25 +66,12 @@ else:
 						D = (privKey*half)%n
 						privKey = D
 						j = j-1
-				
-					print("Actual Private Key:",D)
-					print("Please Do Not Loose This Key...Thank You")
-					print("This Key Has Been Written To A File Called foundKeys.txt")
-					with open('foundKeys.txt', 'w') as e:
-							e.write(str(D))
-					exit()
-				elif key == B.x:
-					print("Collision Key Found:")
-					print("Iteration Number:", i)
-					print("Collision Public Key:", key)
-					print("Collision Private Key:", privKey)
-					half = ((n+1)//2)
-					j = i+1
-					while j != 0:
-						D = (privKey*half)%n
-						privKey = D
-						j = j-1
-				
+			
+					pub = pubKey*D
+					if pub.y != PublicKey.y:
+						D = n-D
+					else:
+						D = D
 					print("Actual Private Key:",D)
 					print("Please Do Not Loose This Key...Thank You")
 					print("This Key Has Been Written To A File Called foundKeys.txt")
