@@ -1,8 +1,10 @@
 from tinyec.ec import SubGroup, Curve
 
-X = int((input("Please Enter Your Public Key X Coordinate:")),16)
-Y = int((input("Please Enter Your Public Key Y Coordinate:")),16)
+X = int((input("Please Enter Your Public Key X Coordinate In Hex Format:")),16)
+Y = int((input("Please Enter Your Public Key Y Coordinate In Hex Format:")),16)
+
 AA = int(input("Please Enter The Size Of The Refrence List You Would Like To Create:"))
+
 name = 'secp256k1'
 p = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
 n = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
