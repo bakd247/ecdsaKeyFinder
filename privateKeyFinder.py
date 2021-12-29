@@ -4,8 +4,8 @@ import os
 import hashlib
 from ecdsaModule import pubKey
 
-X = int((input("Please Enter Your Public Key X Coordinate:")),16)
-Y = int((input("Please Enter Your Public Key Y Coordinate:")),16)
+X = int((input("Please Enter Your Public Key X Coordinate In Hex Format:")),16)
+Y = int((input("Please Enter Your Public Key Y Coordinate In Hex Format:")),16)
 
 name = 'secp256k1'
 p = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
