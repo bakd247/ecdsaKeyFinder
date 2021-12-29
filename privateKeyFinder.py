@@ -3,6 +3,7 @@ from random import *
 import os
 import hashlib
 from ecdsaModule import pubKey
+
 X = int((input("Please Enter Your Public Key X Coordinate:")),16)
 Y = int((input("Please Enter Your Public Key Y Coordinate:")),16)
 
