@@ -69,7 +69,7 @@ else:
 		elif B.x in CollisionList:
 			for i, key in enumerate (CollisionList):
 				if key == B.x:
-					print("Collision Key Found:")
+					print("Collision Key Found in Large Collision List:")
 					print("Iteration Number:", i)
 					print("Collision Public Key:", key)
 					print("Collision Private Key:", privKey)
@@ -95,7 +95,7 @@ else:
 		elif B.x in HalvesCollisionList:
 			for i, key in enumerate (HalvesCollisionList):
 				if key == B.x:
-					print("Collision Key Found:")
+					print("Collision Key Found in Halves Collision List:")
 					print("Iteration Number:", i)
 					print("Collision Public Key:", key)
 					print("Collision Private Key:", privKey)
