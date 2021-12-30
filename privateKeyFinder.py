@@ -20,11 +20,14 @@ if (((X*X*X)%p)+7) != ((Y*Y)%p):
 else:
 	curve1 = Curve(a, b, SubGroup(p, g, n, h), name)
 	pubKey1 = curve1.g*1
+	pubKeyHalves = curve1.g*1
 	PublicKey = curve1.g*1
+	CollisionList = []
+	HalvesCollisionList = []
+
 	AA = int(input("Please Enter the Size of the Collision List you would like to Create. A Size between 65,000 and 4 billion is the recomended range. Best Performance around 100,000:"))
 	print("Creating Collision List...Please Wait...")
 
-	CollisionList = []
 	iteration = 1
 	while iteration < (AA):
 		A = pubKey1*2
@@ -32,9 +35,19 @@ else:
 		pubKey1 = A
 		iteration = iteration + 1
 
-	print("Collision List Created...Searching For Key...")
+	print("Collision List Created...")
 
+	AAA = int(input("Please Enter the Size of the Halves Collision List you would like to Create. NOTE: Keep this number smaller for better performance. Best Performance around 256:"))
 
+	iterationHalves = 1
+	while iterationHalves < (AAA):
+		CC = pubKeyHalves*57896044618658097711785492504343953926418782139537452191302581570759080747169
+		HalvesCollisionList.append(CC.x)
+		pubKeyHalves = CC
+		iterationHalves = iterationHalves + 1
+	
+	print("Halves Collision List Created...")
+	print("Searching For Key...Please Wait...")
 	iterations = 1
 	while iterations < (n):
 		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
@@ -78,7 +91,32 @@ else:
 					with open('foundKeys.txt', 'w') as e:
 							e.write(str(D))
 					exit()
-		
+
+		elif B.x in HalvesCollisionList:
+			for i, key in enumerate (HalvesCollisionList):
+				if key == B.x:
+					print("Collision Key Found:")
+					print("Iteration Number:", i)
+					print("Collision Public Key:", key)
+					print("Collision Private Key:", privKey)
+					
+					j = i+1
+					while j != 0:
+						D = (privKey*2)%n
+						privKey = D
+						j = j-1
+			
+					pub = pubKey*D
+					if pub.y != PublicKey.y:
+						D = n-D
+					else:
+						D = D
+					print("Actual Private Key:",D)
+					print("Please Do Not Loose This Key...Thank You")
+					print("This Key Has Been Written To A File Called foundKeys.txt")
+					with open('foundKeys.txt', 'w') as e:
+							e.write(str(D))
+					exit()		
 	
 		else:
 			privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
