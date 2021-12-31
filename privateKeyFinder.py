@@ -52,7 +52,14 @@ else:
 	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 	
 	while iterations < (n):
-		BB = pubKey*privKey
+
+		II = 1
+		while II < (257):
+			a = (privKey*(57896044618658097711785492504343953926418782139537452191302581570759080747169)%n)
+			privKey=a
+			iteration = iteration +1
+		
+		BB = pubKey*a
 		hashIteration = 1
 		while hashIteration < (10000):
 			
