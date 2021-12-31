@@ -70,6 +70,10 @@ else:
 				privateKey = ((privKey * 2)%n)
 				print("Found Private Key:", privateKey)
 				print("Matching Public Key:", B.x)
+				print("Please Do Not Loose This Key...Thank You")
+				print("This Key Has Been Written To A File Called foundKeys.txt")
+				with open('foundKeys.txt', 'w') as e:
+					e.write(str(privateKey))
 				exit()
 
 			elif B.x == PublicKey.x:
@@ -77,6 +81,10 @@ else:
 				privateKey = n - privateKey
 				print("Found Private Key:", privKey)
 				print("Matching Public Key:", B.x)
+				print("Please Do Not Loose This Key...Thank You")
+				print("This Key Has Been Written To A File Called foundKeys.txt")
+				with open('foundKeys.txt', 'w') as e:
+					e.write(str(privateKey))
 				exit()
 
 			elif B.x in CollisionList:
