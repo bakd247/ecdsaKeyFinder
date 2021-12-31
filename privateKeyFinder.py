@@ -50,8 +50,9 @@ else:
 	print("Searching For Key...Please Wait...")
 	iterations = 1
 	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
-	BB = pubKey*privKey
+	
 	while iterations < (n):
+		BB = pubKey*privKey
 		hashIteration = 1
 		while hashIteration < (10000):
 			
