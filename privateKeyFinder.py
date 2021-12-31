@@ -54,12 +54,12 @@ else:
 	while iterations < (n):
 
 		II = 1
-		while II < (257):
+		while II < (5000):
 			a = (privKey*(57896044618658097711785492504343953926418782139537452191302581570759080747169)%n)
 			privKey=a
-			iteration = iteration +1
+			II = II +1
 		
-		BB = pubKey*a
+		BB = pubKey*privKey
 		hashIteration = 1
 		while hashIteration < (10000):
 			
