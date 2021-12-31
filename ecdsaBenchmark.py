@@ -19,7 +19,7 @@ AA = 256
 print("Creating Benchmark Collision List...Please Wait...")
 t = time.process_time()
 while iteration < (AA):
-	A = pubKey*(int((hashlib.sha256(os.urandom(16)).hexdigest()), 16))
+	A = pubKey*(2)
 	CollisionList.append(A.x)
 	pubKey = A
 	iteration = iteration + 1
