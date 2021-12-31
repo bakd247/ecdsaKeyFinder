@@ -17,6 +17,7 @@ h = 1
 
 if (((X*X*X)%p)+7) != ((Y*Y)%p):
 	print("The Public Key X and Y Coordinates You Entered Are NOT Valid...NOTE: DO NOT Include 02, 03 Or 04 At The Begining Of The X Coordinate And Make Sure You Are Using Hexidecimal Format. If You Need Assistance...Please Contact Technical Support...Please Try Again...Enter Valid X and Y Coordinates For Your Public Key...")
+	exit()
 else:
 	curve1 = Curve(a, b, SubGroup(p, g, n, h), name)
 	pubKey1 = curve1.g*1
