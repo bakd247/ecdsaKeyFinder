@@ -62,17 +62,17 @@ else:
 		BB = pubKey * privKey
 		if BB.y == PublicKey.y:
 				
-			print("Found Private Key:", privateKey)
+			print("Found Private Key:", privKey)
 			print("Matching Public Key:", BB.x)
 			print("Please Do Not Loose This Key...Thank You")
 			print("This Key Has Been Written To A File Called foundKeys.txt")
 			with open('foundKeys.txt', 'w') as e:
-				e.write(str(privateKey))
+				e.write(str(privKey))
 			exit()
 
 		elif BB.x == PublicKey.x:
-			privateKey = n - privateKey
-			print("Found Private Key:", privKey)
+			privateKey = n - privKey
+			print("Found Private Key:", privateKey)
 			print("Matching Public Key:", BB.x)
 			print("Please Do Not Loose This Key...Thank You")
 			print("This Key Has Been Written To A File Called foundKeys.txt")
@@ -98,7 +98,7 @@ else:
 							j = j - 1
 	
 						pub = pubKey*D
-							if pub.y != PublicKey.y:
+						if pub.y != PublicKey.y:
 							D = n - D
 						else:
 							D = D
@@ -125,7 +125,7 @@ else:
 	
 						pub = pubKey * D
 						if pub.y != PublicKey.y:
-						D = n - D
+							D = n - D
 					else:
 						D = D
 						print("Actual Private Key:", D)
