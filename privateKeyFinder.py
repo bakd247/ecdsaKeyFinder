@@ -98,6 +98,7 @@ else:
 							j = j - 1
 		
 						pub = pubKey*D
+						
 						if pub.y != PublicKey.y:
 							D = n - D
 						else:
@@ -124,6 +125,7 @@ else:
 							j = j - 1
 		
 						pub = pubKey * D
+						
 						if pub.y != PublicKey.y:
 							D = n - D
 						else:
