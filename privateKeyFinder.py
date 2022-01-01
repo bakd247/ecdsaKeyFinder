@@ -26,7 +26,7 @@ else:
 	CollisionList = []
 	HalvesCollisionList = []
 
-	AA = int(input("Please Enter the Size of the Collision List you would like to Create. A Size between 65,000 and 4 billion is the recomended range. Best Performance around 100,000:"))
+	AA = int(input("Please Enter the Size of the Multiples Collision List you would like to Create. A Size between 65,000 and 4 billion is the recomended range. Best Performance around 100,000:"))
 	print("Creating Collision List...Please Wait...")
 
 	iteration = 1
@@ -36,7 +36,7 @@ else:
 		pubKey1 = A
 		iteration = iteration + 1
 
-	print("Collision List Created...")
+	print("Multiples Collision List Created...")
 
 	AAA = int(input("Please Enter the Size of the Halves Collision List you would like to Create. NOTE: Keep this number smaller for better performance. Best Performance around 256:"))
 
@@ -50,7 +50,7 @@ else:
 	print("Halves Collision List Created...")
 	print("Searching For Key...Please Wait...")
 	iterations = 1
-	privKey = 56710063266132001165187615537144387175831432748234950321029173276131093846101
+	privKey = 105689110356959284689501244429045771335789314161874852606914163777015151485215
 	
 	while iterations < (n):
 
@@ -87,7 +87,7 @@ else:
 				for i, key in enumerate (CollisionList):
 					if key == B.x:
 						privateKey = ((privKey * (2**hashIteration))%n)
-						print("Collision Key Found in Large Collision List:")
+						print("Collision Key Found in Multiples Collision List:")
 						print("Iteration Number:", i)
 						print("Collision Public Key:", key)
 						print("Collision Private Key:", privateKey)
