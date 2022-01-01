@@ -138,6 +138,6 @@ else:
 			BB = B
 			hashIteration = hashIteration + 1
 
-	else:
-		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
-		iterations = iterations + 1
+		else:
+			privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
+			iterations = iterations + 1
