@@ -79,9 +79,9 @@ else:
 			with open('foundKeys.txt', 'w') as e:
 				e.write(str(privateKey))
 			exit()
-		else:
-			hashIteration = 1
-			while hashIteration < (10000):
+		
+		hashIteration = 1
+		while hashIteration < (10000):
 			B = BB * 2
 			if B.x in CollisionList:
 				for i, key in enumerate (CollisionList):
@@ -96,10 +96,9 @@ else:
 							D = (privateKey * (57896044618658097711785492504343953926418782139537452191302581570759080747169))%n
 							privateKey = D
 							j = j - 1
-		
+	
 						pub = pubKey*D
-						
-						if pub.y != PublicKey.y:
+							if pub.y != PublicKey.y:
 							D = n - D
 						else:
 							D = D
@@ -107,7 +106,7 @@ else:
 						print("Please Do Not Loose This Key...Thank You")
 						print("This Key Has Been Written To A File Called foundKeys.txt")
 						with open('foundKeys.txt', 'w') as e:
-								e.write(str(D))
+							e.write(str(D))
 						exit()
 			elif B.x in HalvesCollisionList:
 				for i, key in enumerate (HalvesCollisionList):
@@ -123,23 +122,22 @@ else:
 							D = (privateKey * 2)%n
 							privateKey = D
 							j = j - 1
-		
+	
 						pub = pubKey * D
-						
 						if pub.y != PublicKey.y:
-							D = n - D
-						else:
-							D = D
+						D = n - D
+					else:
+						D = D
 						print("Actual Private Key:", D)
 						print("Please Do Not Loose This Key...Thank You")
 						print("This Key Has Been Written To A File Called foundKeys.txt")
 						with open('foundKeys.txt', 'w') as e:
-								e.write(str(D))
+							e.write(str(D))
 						exit()		
 		
 			BB = B
 			hashIteration = hashIteration + 1
 
-		else:
-			privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
-			iterations = iterations + 1
+		
+		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
+		iterations = iterations + 1
