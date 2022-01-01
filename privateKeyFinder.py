@@ -59,35 +59,31 @@ else:
 			a = (privKey * (57896044618658097711785492504343953926418782139537452191302581570759080747169)%n)
 			privKey = a
 			II = II + 1
-		
 		BB = pubKey * privKey
-		hashIteration = 1
-		while hashIteration < (10000):
-			
+		if BB.y == PublicKey.y:
+				
+			print("Found Private Key:", privateKey)
+			print("Matching Public Key:", BB.x)
+			print("Please Do Not Loose This Key...Thank You")
+			print("This Key Has Been Written To A File Called foundKeys.txt")
+			with open('foundKeys.txt', 'w') as e:
+				e.write(str(privateKey))
+			exit()
+
+		elif BB.x == PublicKey.x:
+			privateKey = n - privateKey
+			print("Found Private Key:", privKey)
+			print("Matching Public Key:", BB.x)
+			print("Please Do Not Loose This Key...Thank You")
+			print("This Key Has Been Written To A File Called foundKeys.txt")
+			with open('foundKeys.txt', 'w') as e:
+				e.write(str(privateKey))
+			exit()
+		else:
+			hashIteration = 1
+			while hashIteration < (10000):
 			B = BB * 2
-
-			if B.y == PublicKey.y:
-				privateKey = ((privKey * 2)%n)
-				print("Found Private Key:", privateKey)
-				print("Matching Public Key:", B.x)
-				print("Please Do Not Loose This Key...Thank You")
-				print("This Key Has Been Written To A File Called foundKeys.txt")
-				with open('foundKeys.txt', 'w') as e:
-					e.write(str(privateKey))
-				exit()
-
-			elif B.x == PublicKey.x:
-				privateKey = ((privKey * 2)%n)
-				privateKey = n - privateKey
-				print("Found Private Key:", privKey)
-				print("Matching Public Key:", B.x)
-				print("Please Do Not Loose This Key...Thank You")
-				print("This Key Has Been Written To A File Called foundKeys.txt")
-				with open('foundKeys.txt', 'w') as e:
-					e.write(str(privateKey))
-				exit()
-
-			elif B.x in CollisionList:
+			if B.x in CollisionList:
 				for i, key in enumerate (CollisionList):
 					if key == B.x:
 						privateKey = ((privKey * (2**hashIteration))%n)
@@ -100,7 +96,7 @@ else:
 							D = (privateKey * (57896044618658097711785492504343953926418782139537452191302581570759080747169))%n
 							privateKey = D
 							j = j - 1
-			
+		
 						pub = pubKey*D
 						if pub.y != PublicKey.y:
 							D = n - D
@@ -112,8 +108,7 @@ else:
 						with open('foundKeys.txt', 'w') as e:
 								e.write(str(D))
 						exit()
-
-			elif B.x in HalvesCollisionList:
+				elif B.x in HalvesCollisionList:
 				for i, key in enumerate (HalvesCollisionList):
 					if key == B.x:
 						privateKey = ((privKey * (2**hashIteration))%n)
@@ -121,13 +116,13 @@ else:
 						print("Iteration Number:", i)
 						print("Collision Public Key:", key)
 						print("Collision Private Key:", privateKey)
-					
+				
 						j = i + 1
 						while j != 0:
 							D = (privateKey * 2)%n
 							privateKey = D
 							j = j - 1
-			
+		
 						pub = pubKey * D
 						if pub.y != PublicKey.y:
 							D = n - D
@@ -139,10 +134,10 @@ else:
 						with open('foundKeys.txt', 'w') as e:
 								e.write(str(D))
 						exit()		
-			
+		
 			BB = B
 			hashIteration = hashIteration + 1
-	
+
 	else:
 		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 		iterations = iterations + 1
