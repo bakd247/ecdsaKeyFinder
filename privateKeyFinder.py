@@ -50,7 +50,7 @@ else:
 	print("Halves Collision List Created...")
 	print("Searching For Key...Please Wait...")
 	iterations = 1
-	privKey = 105689110356959284689501244429045771335789314161874852606914163777015151485215
+	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 	
 	while iterations < (n):
 
