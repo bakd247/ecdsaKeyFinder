@@ -108,7 +108,7 @@ else:
 						with open('foundKeys.txt', 'w') as e:
 								e.write(str(D))
 						exit()
-				elif B.x in HalvesCollisionList:
+			elif B.x in HalvesCollisionList:
 				for i, key in enumerate (HalvesCollisionList):
 					if key == B.x:
 						privateKey = ((privKey * (2**hashIteration))%n)
