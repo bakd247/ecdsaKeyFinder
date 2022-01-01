@@ -55,19 +55,19 @@ else:
 	while iterations < (n):
 
 		II = 1
-		while II < (5000):
+		while II < (50000):
 			a = (privKey * (57896044618658097711785492504343953926418782139537452191302581570759080747169)%n)
 			privKey = a
 			II = II + 1
 		BB = pubKey * privKey
 		if BB.y == PublicKey.y:
-				
-			print("Found Private Key:", privKey)
+			privateKey = privKey
+			print("Found Private Key:", privateKey)
 			print("Matching Public Key:", BB.x)
 			print("Please Do Not Loose This Key...Thank You")
 			print("This Key Has Been Written To A File Called foundKeys.txt")
 			with open('foundKeys.txt', 'w') as e:
-				e.write(str(privKey))
+				e.write(str(privateKey))
 			exit()
 
 		elif BB.x == PublicKey.x:
@@ -80,10 +80,83 @@ else:
 				e.write(str(privateKey))
 			exit()
 		
-		hashIteration = 1
-		while hashIteration < (10000):
-			B = BB * 2
-			if B.x in CollisionList:
+		elif BB.x in CollisionList:
+			for i, key in enumerate (CollisionList):
+				if key == B.x:
+					privateKey = ((privKey * (2**hashIteration))%n)
+					print("Collision Key Found in Multiples Collision List:")
+					print("Iteration Number:", i)
+					print("Collision Public Key:", key)
+					print("Collision Private Key:", privateKey)
+					j = i + 1
+					while j != 0:
+						D = (privateKey * (57896044618658097711785492504343953926418782139537452191302581570759080747169))%n
+						privateKey = D
+						j = j - 1
+	
+					pub = pubKey*D
+					if pub.y != PublicKey.y:
+						D = n - D
+					else:
+						D = D
+						print("Actual Private Key:", D)
+						print("Please Do Not Loose This Key...Thank You")
+						print("This Key Has Been Written To A File Called foundKeys.txt")
+						with open('foundKeys.txt', 'w') as e:
+							e.write(str(D))
+						exit()
+		elif BB.x in HalvesCollisionList:
+			for i, key in enumerate (HalvesCollisionList):
+				if key == B.x:
+					privateKey = ((privKey * (2**hashIteration))%n)
+					print("Collision Key Found in Halves Collision List:")
+					print("Iteration Number:", i)
+					print("Collision Public Key:", key)
+					print("Collision Private Key:", privateKey)
+				
+					j = i + 1
+					while j != 0:
+						D = (privateKey * 2)%n
+						privateKey = D
+						j = j - 1
+	
+					pub = pubKey * D
+					if pub.y != PublicKey.y:
+						D = n - D
+					else:
+						D = D
+						print("Actual Private Key:", D)
+						print("Please Do Not Loose This Key...Thank You")
+						print("This Key Has Been Written To A File Called foundKeys.txt")
+						with open('foundKeys.txt', 'w') as e:
+							e.write(str(D))
+						exit()		
+		else:
+			hashIteration = 1
+			while hashIteration < (100000):
+				B = BB * 2
+			
+			if B.y == PublicKey.y:
+				privateKey = privKey
+				print("Found Private Key:", privateKey)
+				print("Matching Public Key:", BB.x)
+				print("Please Do Not Loose This Key...Thank You")
+				print("This Key Has Been Written To A File Called foundKeys.txt")
+				with open('foundKeys.txt', 'w') as e:
+					e.write(str(privateKey))
+				exit()
+
+			elif B.x == PublicKey.x:
+				privateKey = n - privKey
+				print("Found Private Key:", privateKey)
+				print("Matching Public Key:", BB.x)
+				print("Please Do Not Loose This Key...Thank You")
+				print("This Key Has Been Written To A File Called foundKeys.txt")
+				with open('foundKeys.txt', 'w') as e:
+					e.write(str(privateKey))
+				exit()
+		
+			elif B.x in CollisionList:
 				for i, key in enumerate (CollisionList):
 					if key == B.x:
 						privateKey = ((privKey * (2**hashIteration))%n)
@@ -108,7 +181,7 @@ else:
 							with open('foundKeys.txt', 'w') as e:
 								e.write(str(D))
 							exit()
-			elif B.x in HalvesCollisionList:
+			elif BB.x in HalvesCollisionList:
 				for i, key in enumerate (HalvesCollisionList):
 					if key == B.x:
 						privateKey = ((privKey * (2**hashIteration))%n)
@@ -133,8 +206,8 @@ else:
 							print("This Key Has Been Written To A File Called foundKeys.txt")
 							with open('foundKeys.txt', 'w') as e:
 								e.write(str(D))
-							exit()		
-		
+							exit()	
+
 			BB = B
 			hashIteration = hashIteration + 1
 
