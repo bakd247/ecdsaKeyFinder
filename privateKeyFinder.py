@@ -50,7 +50,7 @@ else:
 	print("Halves Collision List Created...")
 	print("Searching For Key...Please Wait...")
 	iterations = 1
-	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
+	privKey = 56710063266132001165187615537144387175831432748234950321029173276131093846101
 	
 	while iterations < (n):
 
@@ -102,12 +102,12 @@ else:
 							D = n - D
 						else:
 							D = D
-						print("Actual Private Key:", D)
-						print("Please Do Not Loose This Key...Thank You")
-						print("This Key Has Been Written To A File Called foundKeys.txt")
-						with open('foundKeys.txt', 'w') as e:
-							e.write(str(D))
-						exit()
+							print("Actual Private Key:", D)
+							print("Please Do Not Loose This Key...Thank You")
+							print("This Key Has Been Written To A File Called foundKeys.txt")
+							with open('foundKeys.txt', 'w') as e:
+								e.write(str(D))
+							exit()
 			elif B.x in HalvesCollisionList:
 				for i, key in enumerate (HalvesCollisionList):
 					if key == B.x:
@@ -126,14 +126,14 @@ else:
 						pub = pubKey * D
 						if pub.y != PublicKey.y:
 							D = n - D
-					else:
-						D = D
-						print("Actual Private Key:", D)
-						print("Please Do Not Loose This Key...Thank You")
-						print("This Key Has Been Written To A File Called foundKeys.txt")
-						with open('foundKeys.txt', 'w') as e:
-							e.write(str(D))
-						exit()		
+						else:
+							D = D
+							print("Actual Private Key:", D)
+							print("Please Do Not Loose This Key...Thank You")
+							print("This Key Has Been Written To A File Called foundKeys.txt")
+							with open('foundKeys.txt', 'w') as e:
+								e.write(str(D))
+							exit()		
 		
 			BB = B
 			hashIteration = hashIteration + 1
