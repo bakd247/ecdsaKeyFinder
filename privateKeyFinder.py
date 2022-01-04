@@ -212,8 +212,8 @@ else:
 			BB = B
 			hashIteration = hashIteration + 1
 		elapsed_time = time.process_time() - t
-		C = ((10000)//elapsed_time)
+		C = ((20000)//elapsed_time)
 		print(C," keys per second")
-		print("Total Tries:", iterations*10000)
+		print("Total Tries:", iterations*20000)
 		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 		iterations = iterations + 1
