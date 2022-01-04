@@ -3,6 +3,7 @@ from random import *
 import os
 import hashlib
 from ecdsaModule import pubKey
+import time
 
 X = int((input("Please Enter Your Public Key X Coordinate In Hex Format:")),16)
 Y = int((input("Please Enter Your Public Key Y Coordinate In Hex Format:")),16)
@@ -53,9 +54,9 @@ else:
 	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 	
 	while iterations < (n):
-
+		t = time.process_time()
 		II = 1
-		while II < (50000):
+		while II < (5000):
 			a = (privKey * (57896044618658097711785492504343953926418782139537452191302581570759080747169)%n)
 			privKey = a
 			II = II + 1
@@ -131,10 +132,10 @@ else:
 						with open('foundKeys.txt', 'w') as e:
 							e.write(str(D))
 						exit()		
-		else:
-			hashIteration = 1
-			while hashIteration < (100000):
-				B = BB * 2
+		
+		hashIteration = 1
+		while hashIteration < (10000):
+			B = BB * 2
 			
 			if B.y == PublicKey.y:
 				privateKey = privKey
@@ -207,10 +208,12 @@ else:
 							with open('foundKeys.txt', 'w') as e:
 								e.write(str(D))
 							exit()	
-
+			
 			BB = B
 			hashIteration = hashIteration + 1
-
-		
+		elapsed_time = time.process_time() - t
+		C = ((10000)//elapsed_time)
+		print(C," keys per second")
+		print("Total Tries:", iterations*10000)
 		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 		iterations = iterations + 1
