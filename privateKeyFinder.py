@@ -214,7 +214,6 @@ else:
 		elapsed_time = time.process_time() - t
 		C = ((10000)//elapsed_time)
 		print(C," keys per second")
-		print("Total Tries:", iterations*10000)
 		CCC = ((iterations*200000)+iteration+iterationHalves)
 		print("Total Positions Tried:",CCC)
 		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
