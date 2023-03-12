@@ -22,7 +22,7 @@ Any Recovered Keys can be found in a file called 'foundKeys.txt'.
 
 More on the Math Behind ECDSA at my YouTube Channel Located Here:
 
-https://www.youtube.com/channel/UCzqL2c7hXqtypPM3irYz2-g
+https://www.youtube.com/@quitethecontrary1846
 
 Note:
 
