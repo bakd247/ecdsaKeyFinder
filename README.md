@@ -40,5 +40,3 @@ pip install hashlib
 
 
 Please check back periodically for updates and optomizations.
-
-I recently learned that the number of Keys searched per second calculation is wrong on this version. Sorry for that...The newest version (hashAdder) is much faster and will be replacing this version as soon as I am finished writting the code.
