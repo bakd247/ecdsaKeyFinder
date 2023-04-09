@@ -49,7 +49,7 @@ else:
 		HalvesCollisionList.append(CC.x)
 		place = CC
 		iterationHalves = iterationHalves + 1
-	HalvesCollisionList = HalvesCollisionList.reverse()
+	HalvesCollisionList.reverse()
 	tupleHalvesCollisionList = tuple(HalvesCollisionList)
 	print("Halves Collision List Created...")
 	print("Searching For Key...Please Wait...")
@@ -114,7 +114,7 @@ else:
 				if key == B.x:
 					privateKey = ((privKey * (2**hashIteration))%n)
 					print("Collision Key Found in Halves Collision List:")
-					print("Iteration Number:", i)
+					print("Iteration Number:", i+1)
 					print("Collision Public Key:", key)
 					print("Collision Private Key:", privateKey)
 				
@@ -138,7 +138,7 @@ else:
 		
 		hashIteration = 1
 		while hashIteration < (10000):
-			B = (BB * 2)%n
+			B = (BB * 2)
 			
 			if B.y == PublicKey.y:
 				privateKey = privKey
