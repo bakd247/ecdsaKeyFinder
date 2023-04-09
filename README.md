@@ -19,10 +19,6 @@ Please See Source code to Understand the inner Workings of this tool.
 
 Any Recovered Keys can be found in a file called 'foundKeys.txt'.
 
-More on the Math Behind ECDSA at my YouTube Channel Located Here:
-
-https://www.youtube.com/@quitethecontrary1846
-
 Note:
 
 The larger the Size of the Collision List you create...the longer each try will take to search through the list. So there is a point around 100 Thousand or more collisions in the lists where the keys per second starts to take a hit due to the search time of the large Collision List. It is recommended to keep your Collision List lower than 1 Million Total Keys for the maximum "hash rate"/ "key creation per second rate".
@@ -38,3 +34,7 @@ pip install hashlib
 
 
 Please check back periodically for updates and optomizations.
+
+More on the Math Behind ECDSA at my YouTube Channel Located Here:
+
+https://www.youtube.com/@quitethecontrary1846
