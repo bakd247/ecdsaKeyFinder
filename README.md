@@ -14,6 +14,8 @@ DO NOT GIVE OUT YOUR KEYS TO ANYONE!!!
 
 DO NOT USE THIS TOOL FOR THEFT!!! Blockchain data is highly transparent...and easily trackable/tracable!!!
 
+How This Tool Works:
+
 By Creating A Very Large List of Collisions and searching through this list there is a Much Higher Probability of Recovering a Private Key from a Known Public Key.
 
 These Collisions are Created using Mulitples of a Public Key by 2 and then iterativley dividing the collision found by 2 until the key being searched for is found.
