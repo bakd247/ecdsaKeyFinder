@@ -26,28 +26,31 @@ else:
 	PublicKey = curve1.g * 1
 	CollisionList = []
 	HalvesCollisionList = []
-	## Need to convert search lists to tuples for super fast indexing resulting in much faster search times per iteration
+	
+	
 	AA = int(input("Please Enter the Size of the Multiples Collision List you would like to Create. A Size between 65,000 and 4 billion is the recomended range. Best Performance around 100,000:"))
 	print("Creating Collision List...Please Wait...")
 
 	iteration = 1
 	while iteration < (AA):
-		A = pubKey1 * 2
+		A = pubKey1 + pubKey1
 		CollisionList.append(A.x)
 		pubKey1 = A
 		iteration = iteration + 1
-	## Need to change to addition loop
+	tupleCollisionList = tuple(CollisionList)
 	print("Multiples Collision List Created...")
 
 	AAA = int(input("Please Enter the Size of the Halves Collision List you would like to Create. NOTE: Keep this number smaller for better performance. Best Performance around 256:"))
-
+	power = (57896044618658097711785492504343953926418782139537452191302581570759080747169 ** AAA)%n
+	place = pubKeyHalves * power
 	iterationHalves = 1
 	while iterationHalves < (AAA):
-		CC = (pubKeyHalves * 57896044618658097711785492504343953926418782139537452191302581570759080747169)
+		CC = place + place
 		HalvesCollisionList.append(CC.x)
-		pubKeyHalves = CC
+		place = CC
 		iterationHalves = iterationHalves + 1
-	## Need to reverrse the loop and change to addition loop
+	HalvesCollisionList = HalvesCollisionList.reverse()
+	tupleHalvesCollisionList = tuple(HalvesCollisionList)
 	print("Halves Collision List Created...")
 	print("Searching For Key...Please Wait...")
 	iterations = 1
@@ -81,8 +84,8 @@ else:
 				e.write(str(privateKey))
 			exit()
 		
-		elif BB.x in CollisionList:
-			for i, key in enumerate (CollisionList):
+		elif BB.x in tupleCollisionList:
+			for i, key in enumerate (tupleCollisionList):
 				if key == B.x:
 					privateKey = ((privKey * (2**hashIteration))%n)
 					print("Collision Key Found in Multiples Collision List:")
@@ -106,8 +109,8 @@ else:
 						with open('foundKeys.txt', 'w') as e:
 							e.write(str(D))
 						exit()
-		elif BB.x in HalvesCollisionList:
-			for i, key in enumerate (HalvesCollisionList):
+		elif BB.x in tupleHalvesCollisionList:
+			for i, key in enumerate (tupleHalvesCollisionList):
 				if key == B.x:
 					privateKey = ((privKey * (2**hashIteration))%n)
 					print("Collision Key Found in Halves Collision List:")
@@ -132,10 +135,10 @@ else:
 						with open('foundKeys.txt', 'w') as e:
 							e.write(str(D))
 						exit()		
-		## Need to correct hash iterations not NOT include list size iterations!!!
+		
 		hashIteration = 1
 		while hashIteration < (10000):
-			B = BB * 2
+			B = (BB * 2)%n
 			
 			if B.y == PublicKey.y:
 				privateKey = privKey
@@ -157,8 +160,8 @@ else:
 					e.write(str(privateKey))
 				exit()
 		
-			elif B.x in CollisionList:
-				for i, key in enumerate (CollisionList):
+			elif B.x in tupleCollisionList:
+				for i, key in enumerate (tupleCollisionList):
 					if key == B.x:
 						privateKey = ((privKey * (2**hashIteration))%n)
 						print("Collision Key Found in Multiples Collision List:")
@@ -182,8 +185,8 @@ else:
 							with open('foundKeys.txt', 'w') as e:
 								e.write(str(D))
 							exit()
-			elif BB.x in HalvesCollisionList:
-				for i, key in enumerate (HalvesCollisionList):
+			elif BB.x in tupleHalvesCollisionList:
+				for i, key in enumerate (tupleHalvesCollisionList):
 					if key == B.x:
 						privateKey = ((privKey * (2**hashIteration))%n)
 						print("Collision Key Found in Halves Collision List:")
@@ -214,8 +217,7 @@ else:
 		elapsed_time = time.process_time() - t
 		C = ((10000)//elapsed_time)
 		print(C," keys per second")
-		CCC = ((iterations*20000)+iteration+iterationHalves)
+		CCC = ((iterations*20000))
 		print("Total Positions Tried:",CCC)
 		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 		iterations = iterations + 1
-
