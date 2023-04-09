@@ -215,7 +215,7 @@ else:
 			BB = B
 			hashIteration = hashIteration + 1
 		elapsed_time = time.process_time() - t
-		C = ((10000)//elapsed_time)
+		C = ((20000)//elapsed_time)
 		print(C," keys per second")
 		CCC = ((iterations*20000))
 		print("Total Positions Tried:",CCC)
