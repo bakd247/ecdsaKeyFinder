@@ -12,8 +12,6 @@ This Tool is to be used for RECOVERY ONLY of Private Keys...
 
 DO NOT GIVE OUT YOUR KEYS TO ANYONE!!!
 
-The Vulnerability that this tool exploits makes public keys just as valuable as private keys....
-
 By Creating A Very Large List of Collisions and searching through this list there is a Much Higher Probability of Recovering a Private Key from a Known Public Key.
 
 These Collisions are Created using Mulitples of a Public Key by 2 and then iterativley dividing the collision found by 2 until the key being searched for is found.
