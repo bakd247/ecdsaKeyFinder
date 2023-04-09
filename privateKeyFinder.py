@@ -26,7 +26,7 @@ else:
 	PublicKey = curve1.g * 1
 	CollisionList = []
 	HalvesCollisionList = []
-
+	## Need to convert search lists to tuples for super fast indexing resulting in much faster search times per iteration
 	AA = int(input("Please Enter the Size of the Multiples Collision List you would like to Create. A Size between 65,000 and 4 billion is the recomended range. Best Performance around 100,000:"))
 	print("Creating Collision List...Please Wait...")
 
@@ -36,7 +36,7 @@ else:
 		CollisionList.append(A.x)
 		pubKey1 = A
 		iteration = iteration + 1
-
+	## Need to change to addition loop
 	print("Multiples Collision List Created...")
 
 	AAA = int(input("Please Enter the Size of the Halves Collision List you would like to Create. NOTE: Keep this number smaller for better performance. Best Performance around 256:"))
@@ -47,7 +47,7 @@ else:
 		HalvesCollisionList.append(CC.x)
 		pubKeyHalves = CC
 		iterationHalves = iterationHalves + 1
-	
+	## Need to reverrse the loop and change to addition loop
 	print("Halves Collision List Created...")
 	print("Searching For Key...Please Wait...")
 	iterations = 1
@@ -132,7 +132,7 @@ else:
 						with open('foundKeys.txt', 'w') as e:
 							e.write(str(D))
 						exit()		
-		
+		## Need to correct hash iterations not NOT include list size iterations!!!
 		hashIteration = 1
 		while hashIteration < (10000):
 			B = BB * 2
@@ -218,3 +218,4 @@ else:
 		print("Total Positions Tried:",CCC)
 		privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 		iterations = iterations + 1
+
