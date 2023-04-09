@@ -10,8 +10,9 @@ If your wallet has signed transacitons to spend coins in the past then the publi
 
 This Tool is to be used for RECOVERY ONLY of Private Keys...
 
-DO NOT USE THIS TOOL FOR THEFT!!! Blockchain data is highly transparent...and easily trackable/tracable!!!
 DO NOT GIVE OUT YOUR KEYS TO ANYONE!!!
+
+DO NOT USE THIS TOOL FOR THEFT!!! Blockchain data is highly transparent...and easily trackable/tracable!!!
 
 By Creating A Very Large List of Collisions and searching through this list there is a Much Higher Probability of Recovering a Private Key from a Known Public Key.
 
