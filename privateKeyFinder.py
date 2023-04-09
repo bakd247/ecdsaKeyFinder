@@ -54,7 +54,7 @@ else:
 	print("Halves Collision List Created...")
 	print("Searching For Key...Please Wait...")
 	iterations = 1
-	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
+	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)  ## Change this value to a known value (known private key * a power of 2 of a power of "half") for testing...
 	
 	while iterations < (n):
 		t = time.process_time()
