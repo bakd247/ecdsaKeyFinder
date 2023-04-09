@@ -25,7 +25,7 @@ https://www.youtube.com/@quitethecontrary1846
 
 Note:
 
-The larger the Size of the Collision List you create...the longer each try will take to search through the list. So there is a point around 1 billion or more collisions in the list where the keys per second starts to take a hit due to the search time of the large Collision List. It is recommended to keep your Collision List lower than 1 Million Total Keys for the maximum "hash rate"/ "key creation per second rate".
+The larger the Size of the Collision List you create...the longer each try will take to search through the list. So there is a point around 100 Thousand or more collisions in the lists where the keys per second starts to take a hit due to the search time of the large Collision List. It is recommended to keep your Collision List lower than 1 Million Total Keys for the maximum "hash rate"/ "key creation per second rate".
 
 This tool works best with python3
 
