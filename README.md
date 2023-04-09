@@ -1,4 +1,7 @@
 # ecdsaKeyFinder
+
+Please Note that the current version is being updated at the moment to correct iteration counts and to enable faster search...Please Check Back Later..and when this message is gone....the newest version is then available!!!
+
 A Python based ECDSA secp256k1 private key recovery tool
 This tool is intended to be used by anyone who has forgotten thier password to their wallet and would in fact have the public key and an encrypted version of their private key.
 
