@@ -36,6 +36,7 @@ pip install tinyec
 
 pip install hashlib
 
+Python Version 3.9 or Later is required
 
 Please check back periodically for updates and optomizations.
 
