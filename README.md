@@ -26,7 +26,7 @@ How This Tool Works:
 By Creating A Very Large List of Collisions and searching through this list there is a Much Higher Probability of Recovering a Private Key from a Known Public Key.
 
 These Collisions are Created using Mulitples of a Public Key by 2 and then iterativley dividing the collision found by 2 until the key being searched for is found.
-Please See Source code to Understand the inner Workings of this tool.
+Please See Source code to Understand the inner Workings of this tool.(privateKeyFinder.py file)
 
 Any Recovered Keys can be found in a file called 'foundKeys.txt'.
 
