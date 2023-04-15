@@ -51,7 +51,9 @@ else:
 	print("Halves Collision List Created...")
 	print("Searching For Key...Please Wait...")
 	#Random Search For a Match to any One of the Factors accounting for modular inverses
+	
 	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)			##Change This Value to a known private key integer for testing...
+	
 	iterations = 1
 	while iterations < (n):
 		t = time.process_time()
@@ -74,7 +76,7 @@ else:
 			with open('foundKeys.txt', 'w') as e:
 				e.write(str(privateKey))
 			exit()
-		## If the initial Hash is NOT a Mathc...Divide by 2 5000 times within a single iteration then multiply by 2 10000 times using an addition loop (for speed)
+		## If the initial Hash is NOT a Match...Divide by 2 5000 times within a single iteration then multiply by 2 10000 times using an addition loop (for speed)
 		else:
 			hashIteration = 1
 			a = (privKey * (57896044618658097711785492504343953926418782139537452191302581570759080747169**5000)%n)
