@@ -14,6 +14,7 @@ a = 0x0000000000000000000000000000000000000000000000000000000000000000
 b = 0x0000000000000000000000000000000000000000000000000000000000000007
 g = (X,Y)
 h = 1
+## Verify the Input Key is Valid
 if (((X * X * X)%p) + 7) != ((Y * Y)%p):
 	print("The Public Key X and Y Coordinates You Entered Are NOT Valid...NOTE: DO NOT Include 02, 03 Or 04 At The Begining Of The X Coordinate And Make Sure You Are Using Hexidecimal Format. If You Need Assistance...Please Contact Technical Support...Please Try Again...Enter Valid X and Y Coordinates For Your Public Key...")
 	exit()
@@ -73,6 +74,7 @@ else:
 			with open('foundKeys.txt', 'w') as e:
 				e.write(str(privateKey))
 			exit()
+		## If the initial Hash is NOT a Mathc...Divide by 2 5000 times within a single iteration then multiply by 2 10000 times using an addition loop (for speed)
 		else:
 			hashIteration = 1
 			a = (privKey * (57896044618658097711785492504343953926418782139537452191302581570759080747169**5000)%n)
@@ -126,7 +128,9 @@ else:
 								print("This Key Has Been Written To A File Called foundKeys.txt")
 								with open('foundKeys.txt', 'w') as e:
 									e.write(str(D))
-								exit()	
+								exit()
+				## If None of the hash iterations are a match to either list...then a random iteration starts again with a maximum of the largest possible private key
+				## By Only using x-coordinates...modular inverses are used to aid in finding the key there by reducing the search space by half...
 				BB = B
 				hashIteration = hashIteration + 1
 			##Keys per second is shown after 10000 random keys are generated as public keys
