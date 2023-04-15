@@ -1,5 +1,7 @@
 # ecdsaKeyFinder
 
+If you Do NOT know how to run a pytohn file from a terminal or command line...please learn how before attempting to use this tool!!!
+
 A Python based ECDSA secp256k1 private key recovery tool
 This tool is intended to be used by anyone who has forgotten thier password to their wallet and would in fact have the public key.
 
