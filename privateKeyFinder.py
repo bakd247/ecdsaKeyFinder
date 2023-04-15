@@ -50,9 +50,10 @@ else:
 	tupleHalvesCollisionList = tuple(HalvesCollisionList)
 	print("Halves Collision List Created...")
 	print("Searching For Key...Please Wait...")
-	#Random Search For a Match to any One of the Factors accounting for modular inverses
 	
-	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)			##Change This Value to a known private key integer for testing...
+	#Random Search For a Match to any One of the Factors accounting for modular inverses
+	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)			
+ 	##Change This Above Value to a known private key integer for testing...
 	
 	iterations = 1
 	while iterations < (n):
