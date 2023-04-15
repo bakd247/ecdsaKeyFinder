@@ -3,6 +3,11 @@
 If you Do NOT know how to run a python file from a terminal or command line...please learn how to use python before attempting to use this tool!!!
 
 A Python based ECDSA secp256k1 private key recovery tool
+
+This Tool is intended to only recover SECURE KEYS ONLY that are NOT easy to guess or "fast to count to"....please see:
+https://allprivatekeys.com/check-bitcoin-address-in-leaked-bitcoin-private-keys-database
+first to see if your key is a "SECURE KEY"
+
 This tool is intended to be used by anyone who has forgotten thier password to their wallet and would in fact have the public key.
 
 This tool cannot be used to find a private key from an address.
