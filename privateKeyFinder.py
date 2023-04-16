@@ -1,5 +1,4 @@
 from tinyec.ec import SubGroup, Curve
-import random
 import os
 import hashlib
 from ecdsaModule import pubKey
