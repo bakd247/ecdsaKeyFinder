@@ -1,5 +1,5 @@
 from tinyec.ec import SubGroup, Curve
-import os
+from os import urandom
 import hashlib
 from ecdsaModule import pubKey
 import time
