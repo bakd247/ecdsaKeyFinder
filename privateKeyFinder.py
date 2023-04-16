@@ -1,6 +1,5 @@
 from tinyec.ec import SubGroup, Curve
 from os import urandom
-import hashlib
 from ecdsaModule import pubKey
 import time
 ##Initiate ECDSA
