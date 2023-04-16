@@ -50,7 +50,7 @@ else:
 	print("Halves Collision List Created...")
 	print("Searching For Key...Please Wait...")
 	#Random Search For a Match to any One of the Factors accounting for modular inverses
-	privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)			##Change This Value to a known private key integer for testing...
+	privKey = int((hashlib.sha256(os.urandom(32)).hexdigest()), 16)			##Change This Value to a known private key integer for testing...
 	iterations = 1
 	while iterations < (n):
 		t = time.process_time()
