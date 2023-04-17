@@ -133,5 +133,4 @@ else:
 			print(C," keys per second")
 			CCC = ((iterations*10000))
 			print("Total Positions Tried:",CCC)
-			privKey = int((hashlib.sha256(os.urandom(16)).hexdigest()), 16)
 			iterations = iterations + 1
