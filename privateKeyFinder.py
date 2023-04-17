@@ -53,7 +53,9 @@ else:
 	while iterations < (n):
 		t = time.process_time()
 		BB = pubKey * privKey
-		if BB.y == PublicKey.y:
+		if BB.y != PublicKey.y:
+			pass
+		else:
 			privateKey = privKey
 			print("Found Private Key:", privateKey)
 			print("Matching Public Key:", BB.x)
@@ -62,7 +64,9 @@ else:
 			with open('foundKeys.txt', 'w') as e:
 				e.write(str(privateKey))
 			exit()
-		elif BB.x == PublicKey.x:
+		elif BB.x != PublicKey.x:
+			pass
+		else:
 			privateKey = n - privKey
 			print("Found Private Key:", privateKey)
 			print("Matching Public Key:", BB.x)
