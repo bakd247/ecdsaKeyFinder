@@ -40,10 +40,8 @@ Please Be sure to install the tinyec and hashlib package in pytohn3 before runni
 
 pip install tinyec
 
-
-pip install hashlib
-
 Python Version 3.9 or Later is required
+
 
 Please check back periodically for updates and optomizations.
 
