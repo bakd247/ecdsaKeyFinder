@@ -24,7 +24,7 @@ else:
 	HalvesCollisionList = []
 	##Create Multiples and Halves Lists as tuples
 	##Only need to save X-Coordinates Becuase of Modular Inverses being accounted for below...
-	AA = int(input("Please Enter the Size of the Multiples Collision List you would like to Create. Best Performance around 100,000:"))
+	AA = int(input("Please Enter the Size of the Multiples Collision List you would like to Create. Best Performance around 10,000:"))
 	print("Creating Collision List...Please Wait...")
 	iteration = 1
 	while iteration < (AA):
@@ -34,7 +34,7 @@ else:
 		iteration = iteration + 1
 	tupleCollisionList = tuple(CollisionList)
 	print("Multiples Collision List Created...")
-	AAA = int(input("Please Enter the Size of the Halves Collision List you would like to Create. Best Performance around 100,000:"))
+	AAA = int(input("Please Enter the Size of the Halves Collision List you would like to Create. Best Performance around 10,000:"))
 	power = (57896044618658097711785492504343953926418782139537452191302581570759080747169 ** AAA)%n
 	place = pubKeyHalves * power
 	iterationHalves = 1
