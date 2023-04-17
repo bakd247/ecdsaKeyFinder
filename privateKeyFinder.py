@@ -79,7 +79,9 @@ else:
 				B = (BB + BB)
 				if B.x in tupleCollisionList:
 					for i, key in enumerate (tupleCollisionList):
-						if key == B.x:
+						if key != B.x:
+							pass
+						else:
 							privateKey = ((privKey * (2**hashIteration))%n)
 							j = i + 1
 							while j != 0:
@@ -103,7 +105,9 @@ else:
 								exit()
 				elif BB.x in tupleHalvesCollisionList:
 					for i, key in enumerate (tupleHalvesCollisionList):
-						if key == B.x:
+						if key != B.x:
+							pass
+						else:
 							privateKey = ((privKey * (2**hashIteration))%n)
 							j = i + 1
 							while j != 0:
