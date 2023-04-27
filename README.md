@@ -34,6 +34,15 @@ Note:
 
 The larger the Size of the Collision List you create...the longer each try will take to search through the list. So there is a point around 100 Thousand or more collisions in the lists where the keys per second starts to take a hit due to the search time of the large Collision List. It is recommended to keep your Collision List lower than 1 Million Total Keys for the maximum "hash rate"/ "key creation per second rate".
 
+THERE IS NO GUARANTEE THAT A KEY WILL EVER BE FOUND!!!
+
+The method developed as shown on github page is only better than brute force...
+
+so technically it breaks the algorithm but it will STILL take A LOT of time and/or computing power to ever have a chance at finding a key...
+
+The Point is that the chances of recovering a key using this method are 100% greater than using both brute force as well as just plain NOT attempting at all...
+Use of this tool Guarantees NOTHING....
+
 This tool works best with python3
 
 Please Be sure to install the tinyec and hashlib package in pytohn3 before running this benchmark with the folowing command.
