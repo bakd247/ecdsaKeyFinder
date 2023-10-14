@@ -1,5 +1,9 @@
 # ecdsaKeyFinder
 
+NOTE:
+VERY IMPORTANT!!!
+You must have all files shown above in the same directory for this tool to work properly!!!!
+
 If you Do NOT know how to run a python file from a terminal or command line...please learn how to use python before attempting to use this tool!!!
 
 A Python based ECDSA secp256k1 private key recovery tool
