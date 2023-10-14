@@ -1,7 +1,7 @@
 from tinyec.ec import SubGroup, Curve
 from os import urandom
+import time
 
-##Initiate ECDSA
 X = int((input("Please Enter Your Public Key X Coordinate In Hexidecimal Format:")),16)
 Y = int((input("Please Enter Your Public Key Y Coordinate In Hexidecimal Format:")),16)
 name = 'secp256k1'
@@ -22,7 +22,7 @@ else:
 	HalvesCollisionList = []
 	half = 57896044618658097711785492504343953926418782139537452191302581570759080747169
 	
-	AA = int(input("Please Enter the Size of the Multiples Collision List you would like to Create. Best Performance around 10,000:"))
+	AA = int(input("Please Enter the Size of the Collision List you would like to Create. Best Performance around 10,000:"))
 	AAA = (AA*2)
 	
 	print("Creating Collision List...Please Wait...")
@@ -42,7 +42,8 @@ else:
 	from wordAdder import multiplyNum
 	iterations = 1
 	while iterations < (half):
-		privKey = 96167372826517772003102616924874179248677911977546683183271655183059990594886		##Change this value for testing from a random 256 bit hash
+		t = time.process_time()
+		privKey = (int((((urandom(32))[2:])).hex(), 16))%n		##Change this value for testing from a random 256 bit hash
 		privateKey1 = (privKey * (half ** AA))%n
 		for hashIteration in range(AAA):
 			keyB = multiplyNum(privateKey1)
@@ -72,4 +73,7 @@ else:
 			else:
 				privateKey1 += privateKey1
 				keyB += keyB
+		elapsed_time = time.process_time() - t
+		C = ((AAA)//elapsed_time)
+		print(C," keys per second")
 		iterations += iterations
