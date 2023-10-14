@@ -1,7 +1,6 @@
 from tinyec.ec import SubGroup, Curve
 from os import urandom
 import time
-
 X = int((input("Please Enter Your Public Key X Coordinate In Hexidecimal Format:")),16)
 Y = int((input("Please Enter Your Public Key Y Coordinate In Hexidecimal Format:")),16)
 name = 'secp256k1'
@@ -21,12 +20,9 @@ else:
 	CollisionList = []
 	HalvesCollisionList = []
 	half = 57896044618658097711785492504343953926418782139537452191302581570759080747169
-	
 	AA = int(input("Please Enter the Size of the Collision List you would like to Create. Best Performance around 10,000:"))
 	AAA = (AA*2)
-	
 	print("Creating Collision List...Please Wait...")
-	
 	place = pubKeyHalves * ((half ** AA)%n)
 	CollisionList.append(place.x)
 	for iterationMultiples in range (AAA):
@@ -36,9 +32,7 @@ else:
 	CollisionList.reverse	
 	tupleCollisionList = tuple(CollisionList)
 	print("Collision List Created...")
-
 	print("Creating Lookup Table...")
-
 	from wordAdder import multiplyNum
 	iterations = 1
 	while iterations < (half):
@@ -59,7 +53,6 @@ else:
 							privateKey = n - privateKey
 						else:
 							privateKey = privateKey
-
 						print("Hash Iteration:", hashIteration)
 						print("Collision Public Key:", keyB.x)
 						print("Collision Private Key:", privateKey1)
@@ -76,4 +69,6 @@ else:
 		elapsed_time = time.process_time() - t
 		C = ((AAA)//elapsed_time)
 		print(C," keys per second")
+		CCC = ((iterations*AAA))
+		print("Average String Match Total Since Start:",CCC//elapsed_time)
 		iterations += iterations
