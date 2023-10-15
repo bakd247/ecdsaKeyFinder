@@ -35,7 +35,7 @@ else:
 	print("Creating Lookup Table...")
 	from wordAdder import multiplyNum
 	print("Lookup table Created...Searching for Your Key...Please Wait....")
-	print("Total Keys per Round:", AAA)
+	print("Total Key Comparisons per Round:", AAA)
 	iterations = 1
 	while iterations < (half):
 		t = time.process_time()
