@@ -34,6 +34,7 @@ else:
 	print("Collision List Created...")
 	print("Creating Lookup Table...")
 	from wordAdder import multiplyNum
+	print("Lookup table Created...Searching for Your Key...Please Wait....")
 	iterations = 1
 	while iterations < (half):
 		t = time.process_time()
@@ -68,7 +69,7 @@ else:
 				keyB += keyB
 		elapsed_time = time.process_time() - t
 		C = ((AAA)//elapsed_time)
-		print(C," keys per second")
+		print(" Keys Per Second", C)
 		CCC = ((iterations*AAA))
-		print("Average String Match Total Since Start:",CCC//elapsed_time)
+		print("Average String Matches PerSecond Total Since Start:",(CCC//elapsed_time))
 		iterations += iterations
