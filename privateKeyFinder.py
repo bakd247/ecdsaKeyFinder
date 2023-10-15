@@ -35,6 +35,7 @@ else:
 	print("Creating Lookup Table...")
 	from wordAdder import multiplyNum
 	print("Lookup table Created...Searching for Your Key...Please Wait....")
+	print("Total Keys per Round:", AAA)
 	iterations = 1
 	while iterations < (half):
 		t = time.process_time()
@@ -68,8 +69,6 @@ else:
 				privateKey1 += privateKey1
 				keyB += keyB
 		elapsed_time = time.process_time() - t
-		C = ((AAA)//elapsed_time)
-		print(" Keys Per Second", C)
-		CCC = ((iterations*AAA))
-		print("Average String Matches PerSecond Total Since Start:",(CCC//elapsed_time))
+		print("Average Key Strings Matched Per Second",(AAA//elapsed_time))
+		print("Average Seconds per Round", elapsed_time)
 		iterations += iterations
