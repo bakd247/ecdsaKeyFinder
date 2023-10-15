@@ -40,7 +40,7 @@ else:
 	while iterations < (half):
 		t = time.process_time()
 		privKey = (int((((urandom(32))[2:])).hex(), 16))%n		##Change this value for testing from a random 256 bit hash to a known private Key Integer...
-		privateKey1 = (privKey * (half ** AA))%n			##Then Enter the Public key or Public key of a multiple
+		privateKey1 = (privKey * (half ** AA))%n				##Then Enter the Public key or Public key of a multiple
 		for hashIteration in range(AAA):
 			keyB = multiplyNum(privateKey1)
 			if keyB.x in tupleCollisionList:
@@ -69,6 +69,6 @@ else:
 				privateKey1 += privateKey1
 				keyB += keyB
 		elapsed_time = time.process_time() - t
-		print("Average Key Strings Matched Per Second",(AAA//elapsed_time))
-		print("Average Seconds per Round", elapsed_time)
+		print("Average Key Strings Compared Per Second",(AAA//elapsed_time))
+		print("Average Seconds per Round ", elapsed_time)
 		iterations += iterations
