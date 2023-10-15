@@ -8,6 +8,12 @@ If you Do NOT know how to run a python file from a terminal or command line...pl
 
 A Python based ECDSA secp256k1 private key recovery tool
 
+FOR TESTING...
+Please see privateKeyFinder.py in a code editor and change the line variable labeled "privKey" to a known private Key which you have...
+then just enter the public key or any multiples public key in order to have the tool find the private key that belongs to the public key that you enter
+
+Video Coming Soon on how to use and explainations of the proof of concept
+
 This Tool is intended to only recover SECURE KEYS ONLY that are NOT easy to guess or "fast to count to"....please see:
 https://allprivatekeys.com/check-bitcoin-address-in-leaked-bitcoin-private-keys-database
 first to see if your key is a "SECURE KEY"
