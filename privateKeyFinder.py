@@ -39,23 +39,24 @@ else:
 	iterations = 1
 	while iterations < (half):
 		t = time.process_time()
-		privKey = (int((((urandom(32))[2:])).hex(), 16))%n		##Change this value for testing from a random 256 bit hash to a known private Key Integer...
-		privateKey1 = (privKey * (half ** AA))%n				##Then Enter the Public key or Public key of a multiple
+		privKey = 96167372826517772003102616924874179248677911977546683183271655183059990594886		##Change this value for testing from a random 256 bit hash to a known private Key Integer...
+		privateKey1 = (privKey * (half ** AA))%n													##Then Enter the Public key or Public key of a multiple
+		keyB = multiplyNum(privateKey1)
 		for hashIteration in range(AAA):
-			keyB = multiplyNum(privateKey1)
 			if keyB.x in tupleCollisionList:
 				for item, key in enumerate (tupleCollisionList):
 					if key != keyB.x:
 							pass
 					else:
 						print("Key Found")
-						privateKey = (privateKey1*(2**(AA - item)))%n
+						privateKey = ((privateKey1 * (hashIteration + 1))*(2**(AA - item)))%n
 						keyC = multiplyNum(privateKey)
 						if keyC.y != EnteredPublicKey.y:
 							privateKey = n - privateKey
 						else:
 							privateKey = privateKey
 						print("Hash Iteration:", hashIteration)
+						print("Multiple Iteration:", (AA-item))
 						print("Collision Public Key:", keyB.x)
 						print("Collision Private Key:", privateKey1)
 						print("Public Key Your Entered", EnteredPublicKey)
@@ -66,7 +67,6 @@ else:
 							e.write(str(privateKey))
 						exit()
 			else:
-				privateKey1 += privateKey1
 				keyB += keyB
 		elapsed_time = time.process_time() - t
 		print("Average Key Strings Compared Per Second",(AAA//elapsed_time))
