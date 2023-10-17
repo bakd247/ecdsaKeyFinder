@@ -37,7 +37,7 @@ else:
 	print("Lookup table Created...Searching for Your Key...Please Wait....")
 	print("Total Key Comparisons per Round:", AAA)
 	KeyFound = False
-	if KeyFound == False:
+	while KeyFound != True:
 		t = time.process_time()
 		privKey = (int((((urandom(32))[2:])).hex(), 16))%n		##Change this value for testing from a random 256 bit hash to a known private Key Integer...
 		privateKey1 = (privKey * (half ** AA))%n				##Then Enter the Public key or Public key of a multiple
@@ -72,3 +72,4 @@ else:
 		elapsed_time = time.process_time() - t
 		print("Average Key Strings Compared Per Second",(AAA//elapsed_time))
 		print("Average Seconds per Round ", elapsed_time)
+		KeyFound = False
