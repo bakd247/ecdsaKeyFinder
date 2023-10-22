@@ -18,7 +18,6 @@ else:
 	pubKeyHalves = curve1.g * 1  
 	EnteredPublicKey = curve1.g * 1
 	CollisionList = []
-	HalvesCollisionList = []
 	half = 57896044618658097711785492504343953926418782139537452191302581570759080747169
 	AA = int(input("Please Enter the Size of the Collision List you would like to Create. Best Performance around 10,000:"))
 	AAA = (AA*2)
