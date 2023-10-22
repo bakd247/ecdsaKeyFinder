@@ -1,4 +1,27 @@
 # ecdsaKeyFinder
+How This Tool Works:
+
+By Creating A Very Large List of Collisions and searching through this list there is a Much Higher Probability of Recovering a Private Key from a Known Public Key.
+
+These Collisions are Created using Mulitples of a Public Key by 2 and then iterativley dividing the collision found by 2 until the key being searched for is found.
+Please See Source code to Understand the inner Workings of this tool.(privateKeyFinder.py file)
+
+Any Recovered Keys can be found in a file called 'foundKeys.txt'.
+
+Note:
+
+The larger the Size of the Collision List you create...the longer each try will take to search through the list. So there is a point around 100 Thousand or more collisions in the lists where the keys per second starts to take a hit due to the search time of the large Collision List. It is recommended to keep your Collision List lower than 1 Million Total Keys for the maximum "hash rate"/ "key creation per second rate".
+
+THERE IS NO GUARANTEE THAT A KEY WILL EVER BE FOUND!!!
+
+The method developed as shown on github page is only better than brute force...
+
+so technically it breaks the algorithm but it will STILL take A LOT of time and/or computing power to ever have a chance at finding a key...
+
+The Point is that the chances of recovering a key using this method are 100% greater than using both brute force as well as just plain NOT attempting at all...
+Use of this tool Guarantees NOTHING....
+
+
 
 NOTE:
 VERY IMPORTANT!!!
@@ -30,28 +53,6 @@ This Tool is to be used for RECOVERY ONLY of Private Keys...
 DO NOT GIVE OUT YOUR KEYS TO ANYONE!!!
 
 DO NOT USE THIS TOOL FOR THEFT!!! Blockchain data is highly transparent...and easily trackable/tracable!!!
-
-How This Tool Works:
-
-By Creating A Very Large List of Collisions and searching through this list there is a Much Higher Probability of Recovering a Private Key from a Known Public Key.
-
-These Collisions are Created using Mulitples of a Public Key by 2 and then iterativley dividing the collision found by 2 until the key being searched for is found.
-Please See Source code to Understand the inner Workings of this tool.(privateKeyFinder.py file)
-
-Any Recovered Keys can be found in a file called 'foundKeys.txt'.
-
-Note:
-
-The larger the Size of the Collision List you create...the longer each try will take to search through the list. So there is a point around 100 Thousand or more collisions in the lists where the keys per second starts to take a hit due to the search time of the large Collision List. It is recommended to keep your Collision List lower than 1 Million Total Keys for the maximum "hash rate"/ "key creation per second rate".
-
-THERE IS NO GUARANTEE THAT A KEY WILL EVER BE FOUND!!!
-
-The method developed as shown on github page is only better than brute force...
-
-so technically it breaks the algorithm but it will STILL take A LOT of time and/or computing power to ever have a chance at finding a key...
-
-The Point is that the chances of recovering a key using this method are 100% greater than using both brute force as well as just plain NOT attempting at all...
-Use of this tool Guarantees NOTHING....
 
 This tool works best with python3
 
