@@ -18,11 +18,12 @@ else:
 	pubKeyHalves = curve1.g * 1  
 	EnteredPublicKey = curve1.g * 1
 	CollisionList = []
+	N = 115792089237316195423570985008687907852837564279074904382605163141518161494337
 	half = 57896044618658097711785492504343953926418782139537452191302581570759080747169
 	AA = int(input("Please Enter the Size of the Collision List you would like to Create. Best Performance around 10,000:"))
 	AAA = (AA*2)
 	print("Creating Collision List...Please Wait...")
-	place = pubKeyHalves * ((half ** AA)%n)
+	place = pubKeyHalves * ((half ** AA)%N)
 	CollisionList.append(place.x)
 	for iterationMultiples in range (AAA):
 		iterationMultiple = place + place
@@ -38,8 +39,8 @@ else:
 	KeyFound = False
 	while KeyFound != True:
 		t = time.process_time()
-		privKey = (int((((urandom(32))[2:])).hex(), 16))%n		##Change this value for testing from a random 256 bit hash to a known private Key Integer...
-		privateKey1 = (privKey * (half ** AA))%n				##Then Enter the Public key or Public key of a multiple
+		privKey = (int((((urandom(32))[2:])).hex(), 16))%N		##Change this value for testing from a random 256 bit hash to a known private Key Integer...
+		privateKey1 = (privKey * (half ** AA))%N				##Then Enter the Public key or Public key of a multiple
 		keyB = multiplyNum(privateKey1)
 		for hashIteration in range(AAA):
 			if keyB.x in tupleCollisionList:
@@ -48,7 +49,7 @@ else:
 							pass
 					else:
 						print("Key Found")
-						privateKey = ((privateKey1 * (hashIteration + 1))*(2**(AA - item)))%n
+						privateKey = ((privateKey1 * (hashIteration + 1))*(2**(AA - item)))%N
 						keyC = multiplyNum(privateKey)
 						if keyC.y != EnteredPublicKey.y:
 							privateKey = n - privateKey
