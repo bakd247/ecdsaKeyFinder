@@ -33,7 +33,7 @@ else:
 	tupleCollisionList = tuple(CollisionList)
 	print("Collision List Created...")
 	print("Creating Lookup Table...")
-	from wordAdder import multiplyNum
+	from byteAdderOptimized import multiplyNum
 	print("Lookup table Created...Searching for Your Key...Please Wait....")
 	print("Total Key Comparisons per Round:", AAA)
 	KeyFound = False
