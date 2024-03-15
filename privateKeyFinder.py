@@ -1,7 +1,6 @@
 from tinyec.ec import SubGroup, Curve
 from os import urandom
 from binarySearch import binarySearch
-from byteAdderOptimized import createGrid, multiplyNum
 from tqdm import tqdm, trange
 import time
 X = int((input("Please Enter Your Public Key X Coordinate In Hexidecimal Format:")),16)
@@ -46,16 +45,77 @@ print("SortingList...Please Wait...")
 CollisionList.sort(key = lambda i:i[0])
 tupleCollisionList = tuple(CollisionList)
 print("List Sorted...Searching For Key")
+print("Creating Easy Count List...Please Wait...")
+from wordAdder import multiplyNum
+
+def easyCount():
+	for counter in range (1,4294967297):
+		counterKey = multiplyNum(counter)
+		easyCountPlace = binarySearch(tupleCollisionList,counterKey.x)
+		if easyCountPlace != -1:
+			RecoveredKey = counter
+			print("Private Key Recovered:", RecoveredKey)
+			print("X-CoordinateFound:", counterKey.x)
+			KeyFound = True
+			exit()
+
+def checkTwos():
+	twosCheckSpot = 1
+	for twoSpot in range(2):
+		for subTwoSpot in range(256):
+			twosNewSpotCheck = twosCheckSpot + twosCheckSpot
+			if twosNewSpotCheck < 4294967297:
+				pass
+			else:
+				spotToCheck = multiplyNum(twosNewSpotCheck)
+				easyCountPlace = binarySearch(tupleCollisionList,spotToCheck.x)
+				if spotToCheck != -1:
+					RecoveredKey = twosCheckSpot
+					print("Private Key Recovered:", RecoveredKey)
+					print("X-CoordinateFound:", twosNewSpotCheck.x)
+					KeyFound = True
+					exit()
+				else:
+					print("Key Found With Error...Please COntact Support")
+				twosCheckSpot = twosNewSpotCheck
+
+def checkThrees():
+	threesCheckSpot = 1
+	for threeSpot in range(3):
+		for subThreeSpot in range(192):
+			threesNewSpotCheck = threesCheckSpot + threesCheckSpot
+			if threesNewSpotCheck < 4294967297:
+				pass
+			else:
+				spotToCheck = multiplyNum(threesNewSpotCheck)
+				easyCountPlace = binarySearch(tupleCollisionList,spotToCheck.x)
+				if spotToCheck != -1:
+					RecoveredKey = threesCheckSpot
+					print("Private Key Recovered:", RecoveredKey)
+					print("X-CoordinateFound:", threesNewSpotCheck.x)
+					KeyFound = True
+					exit()
+				else:
+						print("Key Found With Error...Please COntact Support")
+				threesCheckSpot = threesNewSpotCheck
+
+print("Checking Easily Countable Positions...")
+counter = 1
+while counter < 4294967297:
+	easyCount()
+	counter += 1
+print("Checking Powers of 2...")
+checkTwos()
+print("Checking Powers of Three..")
+checkThrees()
+
 keyFound = False
 while keyFound != True:
 	t = time.process_time()
-	privKey = (int((((urandom(32))[2:])).hex(), 16))%N
+	privKey = 96167372826517772003102616924874179248677911977546683183271655183059990594886 ##(int((((urandom(32))[2:])).hex(), 16))%N
 	privateKey1 = (privKey * (half ** BB))%N
 	newKey = multiplyNum(privateKey1)
-
-##Insert EasyCount Here....
-
-	for hashIteration in trange (AAA,total=AAA,ascii=True,ncols=100,colour='#00ff00',unit='Comparisons',desc='Searching...'):
+	for hashIteration in trange(AAA,total=AAA,ascii=True,ncols=100,colour='#00ff00',unit='Comparisons',desc='Searching...'):
 		keyToFind = int(newKey.x)
 		result = binarySearch(tupleCollisionList, keyToFind)
 		if result != -1:
