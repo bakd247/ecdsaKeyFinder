@@ -112,7 +112,7 @@ checkThrees()
 keyFound = False
 while keyFound != True:
 	t = time.process_time()
-	privKey = 96167372826517772003102616924874179248677911977546683183271655183059990594886 ##(int((((urandom(32))[2:])).hex(), 16))%N
+	privKey = (int((((urandom(32))[2:])).hex(), 16))%N
 	privateKey1 = (privKey * (half ** BB))%N
 	newKey = multiplyNum(privateKey1)
 	for hashIteration in trange(AAA,total=AAA,ascii=True,ncols=100,colour='#00ff00',unit='Comparisons',desc='Searching...'):
