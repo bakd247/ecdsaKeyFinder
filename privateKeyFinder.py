@@ -49,7 +49,7 @@ print("Creating Easy Count List...Please Wait...")
 from wordAdder import multiplyNum
 
 def easyCount():
-	for counter in trange(4294967297,total=4294967297,ascii=True,ncols=100,colour='#00ff00',unit='easyCountPositions',desc='Searching...'):
+	for counter in trange(10000000,total=10000000,ascii=True,ncols=100,colour='#00ff00',unit='easyCountPositions',desc='Searching...'):
 		counterKey = multiplyNum(counter)
 		easyCountPlace = binarySearch(tupleCollisionList,counterKey.x)
 		if easyCountPlace != -1:
@@ -66,7 +66,7 @@ def checkTwos():
 	for twoSpot in trange(2,total=2,ascii=True,ncols=100,colour='#00ff00',unit='CheckingPowersOfTwo',desc='Searching...256 each'):
 		for subTwoSpot in range(256):
 			twosNewSpotCheck = twosCheckSpot + twosCheckSpot
-			if twosNewSpotCheck < 4294967297:
+			if twosNewSpotCheck < 10000000:
 				pass
 			else:
 				spotToCheck = multiplyNum(twosNewSpotCheck)
@@ -86,7 +86,7 @@ def checkThrees():
 	for threeSpot in trange(3,total=3,ascii=True,ncols=100,colour='#00ff00',unit='CheckingPOwersOfThree',desc='Searching...192 each'):
 		for subThreeSpot in range(192):
 			threesNewSpotCheck = threesCheckSpot + threesCheckSpot
-			if threesNewSpotCheck < 4294967297:
+			if threesNewSpotCheck < 10000000:
 				pass
 			else:
 				spotToCheck = multiplyNum(threesNewSpotCheck)
