@@ -49,7 +49,7 @@ print("Creating Easy Count List...Please Wait...")
 from wordAdder import multiplyNum
 
 def easyCount():
-	for counter in range (1,4294967297):
+	for counter in trange(4294967297,total=4294967297,ascii=True,ncols=100,colour='#00ff00',unit='easyCountPositions',desc='Searching...'):
 		counterKey = multiplyNum(counter)
 		easyCountPlace = binarySearch(tupleCollisionList,counterKey.x)
 		if easyCountPlace != -1:
@@ -61,7 +61,7 @@ def easyCount():
 
 def checkTwos():
 	twosCheckSpot = 1
-	for twoSpot in range(2):
+	for twoSpot in trange(2,total=2,ascii=True,ncols=100,colour='#00ff00',unit='CheckingPowersOfTwo',desc='Searching...256 each'):
 		for subTwoSpot in range(256):
 			twosNewSpotCheck = twosCheckSpot + twosCheckSpot
 			if twosNewSpotCheck < 4294967297:
@@ -81,7 +81,7 @@ def checkTwos():
 
 def checkThrees():
 	threesCheckSpot = 1
-	for threeSpot in range(3):
+	for threeSpot in trange(3,total=3,ascii=True,ncols=100,colour='#00ff00',unit='CheckingPOwersOfThree',desc='Searching...192 each'):
 		for subThreeSpot in range(192):
 			threesNewSpotCheck = threesCheckSpot + threesCheckSpot
 			if threesNewSpotCheck < 4294967297:
@@ -100,11 +100,8 @@ def checkThrees():
 				threesCheckSpot = threesNewSpotCheck
 
 print("Checking Easily Countable Positions...")
-counter = 1
-while counter < 4294967297:
-	easyCount()
-	counter += 1
-print("Checking Powers of 2...")
+easyCount()
+print("Checking Powers of Two...")
 checkTwos()
 print("Checking Powers of Three..")
 checkThrees()
@@ -112,7 +109,7 @@ checkThrees()
 keyFound = False
 while keyFound != True:
 	t = time.process_time()
-	privKey = (int((((urandom(32))[2:])).hex(), 16))%N
+	privKey = 96167372826517772003102616924874179248677911977546683183271655183059990594886 ##(int((((urandom(32))[2:])).hex(), 16))%N
 	privateKey1 = (privKey * (half ** BB))%N
 	newKey = multiplyNum(privateKey1)
 	for hashIteration in trange(AAA,total=AAA,ascii=True,ncols=100,colour='#00ff00',unit='Comparisons',desc='Searching...'):
