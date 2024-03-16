@@ -79,7 +79,7 @@ def checkTwos():
 					exit()
 				else:
 					print("Key Found With Error...Please COntact Support")
-				twosCheckSpot = twosNewSpotCheck
+			twosCheckSpot = twosNewSpotCheck
 
 def checkThrees():
 	threesCheckSpot = 1
@@ -99,7 +99,7 @@ def checkThrees():
 					exit()
 				else:
 						print("Key Found With Error...Please COntact Support")
-				threesCheckSpot = threesNewSpotCheck
+			threesCheckSpot = threesNewSpotCheck
 
 print("Checking Easily Countable Positions...")
 easyCount()
