@@ -58,6 +58,8 @@ def easyCount():
 			print("X-CoordinateFound:", counterKey.x)
 			KeyFound = True
 			exit()
+		else:
+			print("Key Found With Error...Please COntact Support")
 
 def checkTwos():
 	twosCheckSpot = 1
