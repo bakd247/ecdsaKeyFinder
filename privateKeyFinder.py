@@ -59,7 +59,7 @@ def easyCount():
 			KeyFound = True
 			exit()
 		else:
-			print("Key Found With Error...Please COntact Support")
+			pass
 
 def checkTwos():
 	twosCheckSpot = 1
@@ -78,7 +78,7 @@ def checkTwos():
 					KeyFound = True
 					exit()
 				else:
-					print("Key Found With Error...Please COntact Support")
+					pass
 			twosCheckSpot = twosNewSpotCheck
 
 def checkThrees():
@@ -98,7 +98,7 @@ def checkThrees():
 					KeyFound = True
 					exit()
 				else:
-						print("Key Found With Error...Please COntact Support")
+					pass
 			threesCheckSpot = threesNewSpotCheck
 
 print("Checking Easily Countable Positions...")
