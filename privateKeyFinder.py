@@ -48,70 +48,10 @@ print("List Sorted...Searching For Key")
 print("Creating Easy Count List...Please Wait...")
 from wordAdder import multiplyNum
 
-def easyCount():
-	for counter in trange(10000000,total=10000000,ascii=True,ncols=100,colour='#00ff00',unit='easyCountPositions',desc='Searching...'):
-		counterKey = multiplyNum(counter)
-		easyCountPlace = binarySearch(tupleCollisionList,counterKey.x)
-		if easyCountPlace != -1:
-			RecoveredKey = counter
-			print("Private Key Recovered:", RecoveredKey)
-			print("X-CoordinateFound:", counterKey.x)
-			KeyFound = True
-			exit()
-		else:
-			pass
-
-def checkTwos():
-	twosCheckSpot = 1
-	for twoSpot in trange(2,total=2,ascii=True,ncols=100,colour='#00ff00',unit='CheckingPowersOfTwo',desc='Searching...256 each'):
-		for subTwoSpot in range(256):
-			twosNewSpotCheck = twosCheckSpot + twosCheckSpot
-			if twosNewSpotCheck < 10000000:
-				pass
-			else:
-				spotToCheck = multiplyNum(twosNewSpotCheck)
-				easyCountPlace = binarySearch(tupleCollisionList,spotToCheck.x)
-				if spotToCheck != -1:
-					RecoveredKey = twosCheckSpot
-					print("Private Key Recovered:", RecoveredKey)
-					print("X-CoordinateFound:", twosNewSpotCheck.x)
-					KeyFound = True
-					exit()
-				else:
-					pass
-			twosCheckSpot = twosNewSpotCheck
-
-def checkThrees():
-	threesCheckSpot = 1
-	for threeSpot in trange(3,total=3,ascii=True,ncols=100,colour='#00ff00',unit='CheckingPOwersOfThree',desc='Searching...192 each'):
-		for subThreeSpot in range(192):
-			threesNewSpotCheck = threesCheckSpot + threesCheckSpot
-			if threesNewSpotCheck < 10000000:
-				pass
-			else:
-				spotToCheck = multiplyNum(threesNewSpotCheck)
-				easyCountPlace = binarySearch(tupleCollisionList,spotToCheck.x)
-				if spotToCheck != -1:
-					RecoveredKey = threesCheckSpot
-					print("Private Key Recovered:", RecoveredKey)
-					print("X-CoordinateFound:", threesNewSpotCheck.x)
-					KeyFound = True
-					exit()
-				else:
-					pass
-			threesCheckSpot = threesNewSpotCheck
-
-print("Checking Easily Countable Positions...")
-easyCount()
-print("Checking Powers of Two...")
-checkTwos()
-print("Checking Powers of Three..")
-checkThrees()
-
 keyFound = False
 while keyFound != True:
 	t = time.process_time()
-	privKey = 96167372826517772003102616924874179248677911977546683183271655183059990594886 ##(int((((urandom(32))[2:])).hex(), 16))%N
+	privKey = (int((((urandom(32))[2:])).hex(), 16))%N
 	privateKey1 = (privKey * (half ** BB))%N
 	newKey = multiplyNum(privateKey1)
 	for hashIteration in trange(AAA,total=AAA,ascii=True,ncols=100,colour='#00ff00',unit='Comparisons',desc='Searching...'):
